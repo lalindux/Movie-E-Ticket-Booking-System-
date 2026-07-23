@@ -180,7 +180,60 @@ int main() {
                             printf("Remaining Total Booked Tickets: %d\n", totalTickets);
                         }
                         break;
-                    }
+                        case 5: {
+                        printf("===================================================\n");
+                        printf("               SEARCH A BOOKING                   \n");
+                        printf("===================================================\n");
+                        printf("1. Search by Seat (e.g., A-3)\n");
+                        printf("2. Search by Customer Name\n");
+                        int searchType;
+                        printf("Choose Search Type: ");
+                        scanf("%d", &searchType);
+
+                        if (searchType == 1) {
+                            char row;
+                            int col;
+                            printf("Enter Seat Row (A-E): ");
+                            scanf(" %c", &row);
+
+                            if (row >= 'a' && row <= 'e') row -= 32;
+
+                            printf("Enter Seat Column (1-10): ");
+                            scanf("%d", &col);
+
+                            int realrId = row - 'A';
+                            int realcId = col - 1;
+
+                            if (realrId < 0 || realrId > 4 || realcId < 0 || realcId > 9) {
+                                printf("Invalid Seat!\n");
+                            } else if (TheaterSeats[realmId][realrId][realcId] == 1) { // 🟢 BUG FIXED HERE
+                                printf("Seat %c-%d is BOOKED by: %s\n", row, col, SeatNames[realmId][realrId][realcId]);
+                            } else {
+                                printf("Seat %c-%d is currently AVAILABLE.\n", row, col);
+                            }
+                        } else if (searchType == 2) {
+                            char searchName[100];
+                            printf("Enter Customer Name to Search: ");
+                            scanf(" %[^\n]", searchName);
+
+                            int found = 0;
+                            for (int r = 0; r < 5; r++) {
+                                for (int c = 0; c < 10; c++) {
+                                    if (TheaterSeats[realmId][r][c] == 1 && strcasecmp(SeatNames[realmId][r][c], searchName) == 0) {
+                                        printf("Booking Found! Name: %s | Seat: %c-%d\n", SeatNames[realmId][r][c], 'A' + r, c + 1);
+                                        found = 1;
+                                    }
+                                }
+                            }
+                            if (!found) {
+                                printf("No booking found under the name '%s'.\n", searchName);
+                            }
+                        } else {
+                            printf("Invalid Search Option!\n");
+                        }
+                        break;
+                      }
+                     }
                    }
                  }
                }
