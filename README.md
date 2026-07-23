@@ -26,11 +26,11 @@ A lightweight CLI-based **Movie E-Ticket Booking System** built in C. This appli
 
 2. **Open the Project**
    - Launch **Code::Blocks**.
-   - Go to **File ➔ Open...** (or press `Ctrl + O`).
+   - Go to **File ➔ Open...** .
    - Navigate to the cloned folder and select the **`.cbp`** project file.
 
 3. **Build & Run**
-   - Press **`F9`** (or click **Build and Run**) to start the application.
+   - click (**Build and Run**) to start the application.
 
 ```text
 ├── main.c              # Core menu logic and loop control
