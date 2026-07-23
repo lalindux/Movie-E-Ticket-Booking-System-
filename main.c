@@ -128,10 +128,63 @@ int main() {
                             printf("Booking Successful for %s! Ticket Price: Rs. %d\n", name, finalPrice);
                         }
                         break;
-                      }
+                     case 4: {
+                        printf("===================================================\n");
+                        printf("                CANCEL A BOOKING                 \n");
+                        printf("===================================================\n");
+                        char row;
+                        int colNum;
+                        char discountType;
+                        char groupChoice;
+
+                        printf("Enter Seat Row to Cancel (A-E): ");
+                        scanf(" %c", &row);
+
+                        if (row >= 'a' && row <= 'e') {
+                            row = row - 32;
+                        }
+
+                        printf("Enter Seat Column to Cancel (1-10): ");
+                        scanf("%d", &colNum);
+
+                        int realrId = row - 'A';
+                        int realcId = colNum - 1;
+
+                        if (realrId < 0 || realrId > 4 || realcId < 0 || realcId > 9) {
+                            printf(" Invalid Row or Column!\n");
+                            break;
+                        }
+
+                        if (TheaterSeats[realmId][realrId][realcId] == 0) {
+                            printf(" Error: This seat is not booked yet!\n");
+                        } else {
+                            printf("Enter Discount Type used during booking ('S' for Student, 'C' for Senior, 'R' for Regular): ");
+                            scanf(" %c", &discountType);
+
+                            printf("Was this a Group Booking? (Y/N): ");
+                            scanf(" %c", &groupChoice);
+
+                            int isGroup = (groupChoice == 'Y' || groupChoice == 'y') ? 1 : 0;
+
+                            TheaterSeats[realmId][realrId][realcId] = 0;
+                            strcpy(SeatNames[realmId][realrId][realcId], "");
+
+                            int basePrice = getBasePrice(row);
+                            int finalPrice = calculateFinalPrice(basePrice, discountType, isGroup);
+
+                            totalTickets--;
+                            totalRevenue -= finalPrice;
+
+                            printf("\n Cancellation Successful!\n");
+                            printf("Amount Refunded: Rs. %d\n", finalPrice);
+                            printf("Remaining Total Booked Tickets: %d\n", totalTickets);
+                        }
+                        break;
                     }
-                }
-            }
+                   }
+                 }
+               }
+           }
 
 
         } else {
