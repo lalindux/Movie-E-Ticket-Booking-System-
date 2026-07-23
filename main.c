@@ -232,7 +232,13 @@ int main() {
                             printf("Invalid Search Option!\n");
                         }
                         break;
-                      }
+                        case 7:
+                           subMenuRunning = 0;
+                          break;
+
+                        default:
+                            printf("Invalid choice or option handled by other modules.\n");
+                       }
                      }
                    }
                  }
