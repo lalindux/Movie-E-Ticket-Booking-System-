@@ -11,6 +11,7 @@ int main() {
     int totalRevenue = 0;
     char SeatNames[4][5][10][100] = {0};
 
+    int mainMenuRunning = 1;
 
         printf("==============================================\n");
         printf("             WELCOME TO SAVOY CINEMA \n");
@@ -250,10 +251,14 @@ int main() {
            }
 
 
-        } else {
+        }else if (chooseOne == 2) {
             printf("\n===================================================\n");
-            printf("       THANK YOU FOR VISITING SAVOY CINEMA!        \n");
+            printf("        THANK YOU FOR VISITING SAVOY CINEMA!        \n");
             printf("===================================================\n\n");
+            mainMenuRunning = 0;
+        } else {
+
+            printf("\n[!] Invalid Choice! Please select 1 or 2.\n\n");
         }
 
     return 0;
