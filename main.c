@@ -235,6 +235,12 @@ int main() {
                         case 6:
                             showRevenueReport(totalTickets, totalRevenue);
                             break;
+                        case 7:
+                        subMenuRunning = 0;
+                        break;
+
+                        default:
+                        printf("Invalid choice or option handled by other modules.\n");
 
                        }
                      }
