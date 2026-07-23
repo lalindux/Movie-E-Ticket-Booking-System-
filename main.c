@@ -2,9 +2,14 @@
 #include <stdlib.h>
 #include <string.h>
 #include "display.h"
+#include "calculation.h"
+
 int main() {
 
     int TheaterSeats[4][5][10] = {0};
+    int totalTickets = 0;
+    int totalRevenue = 0;
+    char SeatNames[4][5][10][100] = {0};
 
 
         printf("==============================================\n");
@@ -58,6 +63,72 @@ int main() {
                     case 2:
                        showSeatMap(TheaterSeats[realmId]);
                       break;
+                    case 3: {
+                        printf("===================================================\n");
+                        printf("                  BOOK A SEAT                      \n");
+                        printf("===================================================\n");
+
+                        int numTickets = 1;
+                        printf("How many tickets do you want to book? ");
+                        scanf("%d", &numTickets);
+
+                        int isGroup = (numTickets >= 3) ? 1 : 0;
+
+                        if (isGroup) {
+                            printf(" Special Offer: 10%% Group Discount Applied!\n");
+                        }
+
+                        for (int t = 0; t < numTickets; t++) {
+                            printf("\n--- Ticket %d of %d ---\n", t + 1, numTickets);
+                            char row;
+                            int coloum;
+                            char name[100];
+                            char discountType;
+
+                            printf("Please Enter Seat Row (A-E): ");
+                            scanf(" %c", &row);
+
+
+                            if (row >= 'a' && row <= 'e') row -= 32;
+
+                            printf("Please Enter Seat Column (1-10): ");
+                            scanf("%d", &coloum);
+
+                            int realrId = row - 'A';
+                            int realcId = coloum - 1;
+
+                            if (realrId < 0 || realrId > 4 || realcId < 0 || realcId > 9) {
+                                printf("Invalid Seat Position!\n");
+                                t--;
+                                continue;
+                            }
+
+                            if (TheaterSeats[realmId][realrId][realcId] == 1) {
+                                printf("This seat is Already Booked. Please Try Another one.\n");
+                                t--;
+                                continue;
+                            }
+
+                            printf("Enter Customer Name: ");
+                            scanf(" %[^\n]", name);
+
+                            int basePrice = getBasePrice(row);
+
+                            printf("Enter Discount Type ('S' for Student, 'C' for Senior, 'R' for Regular): ");
+                            scanf(" %c", &discountType);
+
+                            int finalPrice = calculateFinalPrice(basePrice, discountType, isGroup);
+
+                            TheaterSeats[realmId][realrId][realcId] = 1;
+                            strcpy(SeatNames[realmId][realrId][realcId], name);
+
+                            totalTickets++;
+                            totalRevenue += finalPrice;
+
+                            printf("Booking Successful for %s! Ticket Price: Rs. %d\n", name, finalPrice);
+                        }
+                        break;
+                      }
                     }
                 }
             }
