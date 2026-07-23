@@ -12,7 +12,7 @@ int main() {
     char SeatNames[4][5][10][100] = {0};
 
     int mainMenuRunning = 1;
-
+        while (mainMenuRunning) {
         printf("==============================================\n");
         printf("             WELCOME TO SAVOY CINEMA \n");
         printf("==============================================\n");
@@ -260,6 +260,7 @@ int main() {
 
             printf("\n[!] Invalid Choice! Please select 1 or 2.\n\n");
         }
+}
 
     return 0;
 }
