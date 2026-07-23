@@ -232,6 +232,9 @@ int main() {
                             printf("Invalid Search Option!\n");
                         }
                         break;
+                        case 6:
+                            showRevenueReport(totalTickets, totalRevenue);
+                            break;
 
                        }
                      }
