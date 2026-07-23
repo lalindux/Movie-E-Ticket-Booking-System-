@@ -22,7 +22,7 @@ A lightweight CLI-based **Movie E-Ticket Booking System** built in C. This appli
 1. **Clone the Repository**
    Open your terminal/Git Bash and clone the project:
    ```bash
-git clone https://github.com/lalindux/Movie-E-Ticket-Booking-System.git
+   git clone [https://github.com/lalindux/Movie-E-Ticket-Booking-System.git](https://github.com/lalindux/Movie-E-Ticket-Booking-System.git) 
 
 2. **Open the Project**
    - Launch **Code::Blocks**.
