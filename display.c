@@ -46,3 +46,12 @@ printf("\n  1 2 3 4 5 6 7 8 9 10\n");
    } printf("-------------------------------------\n");
      printf(" Note: [.] = Available, [X] = Booked\n");
     }
+
+    void showRevenueReport(int totalTickets, int totalRevenue) {
+    printf("\n====================================\n");
+    printf("          REVENUE REPORT            \n");
+    printf("====================================\n");
+    printf("Total Tickets Sold : %d\n", totalTickets);
+    printf("Total Revenue      : Rs. %d\n", totalRevenue);
+    printf("====================================\n");
+}
