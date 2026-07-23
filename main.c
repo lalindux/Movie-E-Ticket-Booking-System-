@@ -4,6 +4,8 @@
 #include "display.h"
 int main() {
 
+    int TheaterSeats[4][5][10] = {0};
+
 
         printf("==============================================\n");
         printf("             WELCOME TO SAVOY CINEMA \n");
@@ -52,6 +54,9 @@ int main() {
                 switch (menuChoose) {
                     case 1:
                        showTime();
+                      break;
+                    case 2:
+                       showSeatMap(TheaterSeats[realmId]);
                       break;
                     }
                 }
