@@ -32,10 +32,10 @@ A lightweight CLI-based **Movie E-Ticket Booking System** built in C. This appli
 3. **Build & Run**
    - Press **`F9`** (or click **Build and Run**) to start the application.
 
+```text
 ├── main.c              # Core menu logic and loop control
-├── display.c / .h      # UI menus, movie showtimes, and seat map renders, and revenue trackers
-├── calculation.c / .h  # Ticket pricing, discount calculations
+├── display.c / .h      # UI menus, movie showtimes, and seat map renders
+├── calculation.c / .h  # Ticket pricing, discount calculations, and revenue trackers
 └── *.cbp               # Code::Blocks project configuration file
-
 
 
