@@ -28,7 +28,7 @@ void showSeatMap(int seats[5][10]) {
 printf("\n=====================================\n");
 printf("              SEAT MAP \n");
 printf("=====================================\n");
-printf("\n 1 2 3 4 5 6 7 8 9 10\n");
+printf("\n  1 2 3 4 5 6 7 8 9 10\n");
    char row = 'A';
     for (int i = 0;i < 5; i++){
             printf("%c ", row + i);
